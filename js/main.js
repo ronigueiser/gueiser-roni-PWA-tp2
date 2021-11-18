@@ -60,15 +60,20 @@ function drawMaker(data){
 
     main.innerHTML = "";
 
+    let divData = d.createElement('div');
+    divData.classList.add('container', 'card');
+    divData.style.width = '18rem';
+    main.appendChild(divData);
+
     let imgMovie = d.createElement('img');
     imgMovie.src = data.Poster;
     imgMovie.alt = 'Card image cap';
     imgMovie.classList.add('card-img-top');
-    main.appendChild(imgMovie);
+    divData.appendChild(imgMovie);
 
     let divMovie = d.createElement('div');
     divMovie.classList.add('card-body');
-    main.appendChild(divMovie);
+    divData.appendChild(divMovie);
 
     let h2Movie = d.createElement('h2');
     h2Movie.innerHTML = data.Title;
@@ -83,6 +88,12 @@ function drawMaker(data){
     aMovie.id = 'verMasTarde';
     aMovie.href = '#';
     divMovie.appendChild(aMovie);
+
+    let aMovieDelete = d.createElement('a');
+    aMovieDelete.innerHTML = 'Quitar de la lista';
+    aMovieDelete.id = 'quitarDeLista';
+    aMovieDelete.href = '#';
+    divMovie.appendChild(aMovieDelete);
 }
 
 
@@ -91,6 +102,12 @@ function agregarParaVerMasTarde(data){
     verMasTarde.addEventListener('click', () => {
         console.log('click');
         saveMovieToStorage(data);
+    })
+
+    const quitarDeLista = d.getElementById('quitarDeLista');
+    quitarDeLista.addEventListener('click', () => {
+        console.log('click');
+        deleteMovieFromStorage(data);
     })
 
 }
@@ -118,5 +135,28 @@ const saveMovieToStorage = (data) => {
 
     }
 
+}
+
+const deleteMovieFromStorage = (data) => {
+    //read 'Respuesta API' from localStorage as list
+    const list = JSON.parse(localStorage.getItem('Respuesta API'));
+    //Check if list is null
+    if (list == null) {
+        //if list is null, create a new list
+        const newList = [];
+        //add new movie to list
+        newList.push(data);
+        //save list to localStorage
+        localStorage.setItem('Respuesta API', JSON.stringify(newList));
+    } else {
+        //Check if data is in list
+        const isInList = list.some(item => item.Title === data.Title);
+        //If in list, remove it
+        if (isInList) {
+            let newList = list.filter(item => item.Title !== data.Title);
+            localStorage.setItem('Respuesta API', JSON.stringify(newList));
+        }
+
+    }
 
 }
