@@ -30,3 +30,13 @@ form{
 .buscador{
     margin-top: 50px;
 }
+
+.movie-data{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+.card-img-top{
+    padding: 10px;
+}
