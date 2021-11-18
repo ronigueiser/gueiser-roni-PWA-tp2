@@ -1,0 +1,32 @@
+.navbar-light .navbar-nav .nav-link {
+    color: black
+}
+
+header{
+    background-color: lightcyan;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+h1{
+    background-color: lightskyblue;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    color: black;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-size: 2.5rem;
+}
+
+.form-control{
+    width: initial;
+}
+
+form{
+    display: flex;
+}
+
+.buscador{
+    margin-top: 50px;
+}

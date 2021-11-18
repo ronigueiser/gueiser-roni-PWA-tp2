@@ -10,7 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="manifest" href="manifest.json"/>
+    <link rel="icon" href="favicon/Logo.png">
+<!--    <link rel="manifest" href="manifest.json"/>-->
 
 
 
@@ -19,8 +20,10 @@
 
 
 
-<header class="container-fluid">
+<header class="container">
 
+    <div class="row">
+    <h1>Quemi.rar</h1>
 
     <nav class="navbar navbar-expand-md navbar-light row">
         <div class="container-fluid">
@@ -37,25 +40,36 @@
 
                 <ul class="navbar-nav ms-auto text-center hover">
                     <li class="nav-item">
-                        <a class="nav-link " href="#beneficio">Home</a>
+                        <a class="nav-link " href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#video">Video</a>
+                        <a class="nav-link" href="#">Video</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#maraton">Maratones</a>
+                        <a class="nav-link" href="#">Maratones</a>
                     </li>
-
-
 
                 </ul>
             </div>
         </div>
     </nav>
-
-
+    </div>
 
 </header>
+
+<div class="container buscador">
+    <h2>Buscador de pelicular</h2>
+    <p>¿Queres información sobre tu pelicular favorita? Realiza tu consulta! </p>
+    <form class="form-inline">
+
+        <input class="form-control mr-sm-2" title="Search" id="search" value="" type="text" required>
+        <button id="send" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
+    </form>
+</div>
+
+<main class="">
+    <div id="poster" class="container"></div>
+</main>
 
 
 
@@ -76,6 +90,9 @@
     })
 
 </script>
+<script src="js/register-sw.js"></script>
+<script src="js/main.js"></script>
+
 
 </body>
 </html>
