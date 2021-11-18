@@ -84,14 +84,16 @@ function drawMaker(data){
     divMovie.appendChild(pMovie);
 
     let aMovie = d.createElement('a');
-    aMovie.innerHTML = 'Ver mas tarde';
+    aMovie.innerHTML = 'Agregar';
     aMovie.id = 'verMasTarde';
     aMovie.href = '#';
+    aMovie.classList.add('btn', 'btn-primary');
     divMovie.appendChild(aMovie);
 
     let aMovieDelete = d.createElement('a');
-    aMovieDelete.innerHTML = 'Quitar de la lista';
+    aMovieDelete.innerHTML = 'Quitar';
     aMovieDelete.id = 'quitarDeLista';
+    aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar');
     aMovieDelete.href = '#';
     divMovie.appendChild(aMovieDelete);
 }
