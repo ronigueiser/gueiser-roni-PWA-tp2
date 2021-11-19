@@ -184,17 +184,33 @@ function deleteMovieFromStorage(data) {
         }
 
     }
-
+    
 }
 
 
 let mainVer = d.getElementById('ver-mas-tarde');
 
+
+
 //read what is in localStorage
+const listaStorage = JSON.parse(localStorage.getItem('Respuesta API'));
 
-console.log('lista', listaVer);
+function sinPeliculas() {
 
-//recorrendo la lista de objetos
+    //if local storage is empty
+
+    if (listaStorage === null || listaStorage.length === 0) {
+
+        let h2Vacio = d.createElement('h2');
+        h2Vacio.innerHTML = 'No hay peliculas agregadas';
+        h2Vacio.classList.add('sin-peliculas');
+        mainVer.appendChild(h2Vacio);
+
+    }
+}
+
+
+//recorriendo la lista de objetos
 
 console.log(mainVer);
 
@@ -202,55 +218,59 @@ function crearMostrador() {
     const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
     mainVer.innerHTML = "";
 
-    for (let movies of listaVer) {
+    if (listaVer != null){
+        for (let movies of listaVer) {
 
 
-        let divData = d.createElement('div');
-        divData.classList.add('container', 'card');
-        divData.style.width = '18rem';
-        mainVer.appendChild(divData);
+            let divData = d.createElement('div');
+            divData.classList.add('container', 'card');
+            divData.style.width = '18rem';
+            mainVer.appendChild(divData);
 
-        let imgMovie = d.createElement('img');
-        imgMovie.src = movies.Poster;
-        imgMovie.alt = 'Card image cap';
-        imgMovie.classList.add('card-img-top');
-        divData.appendChild(imgMovie);
+            let imgMovie = d.createElement('img');
+            imgMovie.src = movies.Poster;
+            imgMovie.alt = 'Card image cap';
+            imgMovie.classList.add('card-img-top');
+            divData.appendChild(imgMovie);
 
-        let divMovie = d.createElement('div');
-        divMovie.classList.add('card-body');
-        divData.appendChild(divMovie);
+            let divMovie = d.createElement('div');
+            divMovie.classList.add('card-body');
+            divData.appendChild(divMovie);
 
-        let h2Movie = d.createElement('h2');
-        h2Movie.innerHTML = movies.Title;
-        h2Movie.classList.add('card-titulo');
-        divMovie.appendChild(h2Movie);
+            let h2Movie = d.createElement('h2');
+            h2Movie.innerHTML = movies.Title;
+            h2Movie.classList.add('card-titulo');
+            divMovie.appendChild(h2Movie);
 
-        let pMovie = d.createElement('p');
-        pMovie.innerHTML = movies.Plot;
-        pMovie.classList.add('sinopsis');
-        divMovie.appendChild(pMovie);
+            let pMovie = d.createElement('p');
+            pMovie.innerHTML = movies.Plot;
+            pMovie.classList.add('sinopsis');
+            divMovie.appendChild(pMovie);
 
-        // let aMovie = d.createElement('a');
-        // aMovie.innerHTML = 'Agregar';
-        // // aMovie.id = 'verMasTarde';
-        // aMovie.href = '#';
-        // aMovie.classList.add('btn', 'btn-primary',);
-        // divMovie.appendChild(aMovie);
+            // let aMovie = d.createElement('a');
+            // aMovie.innerHTML = 'Agregar';
+            // // aMovie.id = 'verMasTarde';
+            // aMovie.href = '#';
+            // aMovie.classList.add('btn', 'btn-primary',);
+            // divMovie.appendChild(aMovie);
 
-        let aMovieDelete = d.createElement('a');
-        aMovieDelete.innerHTML = 'Quitar';
-        // aMovieDelete.id = 'quitarDeListaVer';
-        aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', `${movies.Title}`, 'quitarDeListaVer');
-        aMovieDelete.href = '#';
-        divMovie.appendChild(aMovieDelete);
+            let aMovieDelete = d.createElement('a');
+            aMovieDelete.innerHTML = 'Quitar';
+            // aMovieDelete.id = 'quitarDeListaVer';
+            aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', `${movies.Title}`, 'quitarDeListaVer');
+            aMovieDelete.href = '#';
+            divMovie.appendChild(aMovieDelete);
 
-        aMovieDelete.addEventListener('click', () => {
-            console.log('click');
-            deleteMovieFromStorage(movies);
-            crearMostrador();
-        })
+            aMovieDelete.addEventListener('click', () => {
+                console.log('click');
+                deleteMovieFromStorage(movies);
+                crearMostrador();
 
+            })
+
+        }
     }
+
 
 }
 

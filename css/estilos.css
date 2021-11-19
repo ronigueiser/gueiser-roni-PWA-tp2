@@ -5,7 +5,7 @@ body{
     background-color: rgb(42,42,42);
 }
 header{
-    background-color: rgb(26,27,27);
+    /*background-color: rgb(26,27,27);*/
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
 }
@@ -23,7 +23,7 @@ p{
 
 h1{
     font-family: 'Rubik', sans-serif;
-    background-color: #ef6c00;
+    /*background-color: #ef6c00;*/
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
     /*color: black;*/
@@ -31,7 +31,14 @@ h1{
     padding-top: 20px;
     padding-bottom: 25px;
     font-size: 2.5rem;
-    color: rgb(42,42,42);
+    color: white;
+    width: fit-content!important;
+    max-width: fit-content!important;
+}
+
+nav{
+    width: fit-content!important;
+    max-width: fit-content!important;
 }
 
 .btn-outline-success{
@@ -61,12 +68,21 @@ h1{
     color: white;
     border-color: white;
     margin-bottom: 13px;
+    margin-top: 13px;
 }
 
 .navbar-toggler{
     background-color: white;
 }
 
+.nav{
+    align-items: center;
+}
+
+.navegacion{
+    background: rgb(26,27,27);
+    border-radius: 18px;
+}
 
 .card{
     margin-top: 3rem;
@@ -129,5 +145,52 @@ form{
 .mostrador{
     display: flex;
     flex-wrap: wrap;
+}
+
+/*videos*/
+
+.movie{
+    width: 100%;
+    height: calc(60vw * 0.5625);
+    max-width: 560px;
+    max-height: 315px;
+
+}
+
+.peliculas{
+    margin: 80px auto auto;
+    background-color: rgb(26,27,27);
+    color: white;
+    padding: 50px;
+    border-radius: 25px;
+    max-width: 630px;
+
+}
+
+.peliculas h3{
+    margin-bottom: 30px;
+}
+
+.div-que-mirar{
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    margin-top: 45px;
+}
+
+.div-que-mirar h2{
+    color: white;
+    font-size: 3rem;
+}
+
+.main-recomendaciones{
+    margin-bottom: 100px;
+}
+
+.sin-peliculas{
+    color: white;
+    display: block;
+    margin: auto;
+    padding-top: 40px;
 }
 
