@@ -39,7 +39,7 @@ if (buttom != null) {
 
         // console.log(search.value);
 
-        fetch(`http://www.omdbapi.com/?t=${search.value}&apikey=${API_KEY}`
+        fetch(`https://www.omdbapi.com/?t=${search.value}&apikey=${API_KEY}`
         ).then(function (response) {
             console.log(response);
             return response.json();
