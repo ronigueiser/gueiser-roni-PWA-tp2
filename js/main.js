@@ -14,7 +14,6 @@ if (!navigator.onLine) {
 }
 
 
-
 //1af0b29c-e575-4cfe-9751-922d6f454f86
 
 const API_KEY = 'fe416fc4';
@@ -29,7 +28,7 @@ let buttom = d.getElementById('send');
 
 const valorUltimaBusqueda = JSON.parse(localStorage.getItem('Respuesta API'));
 
-if (valorUltimaBusqueda != null){
+if (valorUltimaBusqueda != null) {
     // drawMaker(valorUltimaBusqueda);
 }
 
@@ -43,26 +42,24 @@ if (buttom != null) {
         ).then(function (response) {
             console.log(response);
             return response.json();
-        }).then(function (responseJSON){
+        }).then(function (responseJSON) {
             console.log('imprimo json', responseJSON);
             drawMaker(responseJSON);
             return responseJSON;
         }).then((returnJSON) => agregarParaVerMasTarde(returnJSON))
-            .catch(function (error){
-                console.log('Fallo!',error)
+            .catch(function (error) {
+                console.log('Fallo!', error)
             });
 
     })
 }
 
 
-
-
-function drawMaker(data){
+function drawMaker(data) {
 
     console.log(data);
 
-    if (data.Response == 'False'){
+    if (data.Response == 'False') {
 
         main.innerHTML = "";
         let divData = d.createElement('div');
@@ -75,7 +72,6 @@ function drawMaker(data){
         pError.classList.add('error');
         divData.appendChild(pError);
     } else {
-
 
 
         main.innerHTML = "";
@@ -124,7 +120,7 @@ function drawMaker(data){
 }
 
 
-function agregarParaVerMasTarde(data){
+function agregarParaVerMasTarde(data) {
     const verMasTarde = d.getElementById('verMasTarde');
     verMasTarde.addEventListener('click', () => {
         console.log('click');
@@ -165,7 +161,8 @@ const saveMovieToStorage = (data) => {
 
 }
 
-function deleteMovieFromStorage (data){
+
+function deleteMovieFromStorage(data) {
     console.log(data)
     //lee 'Respuesta API' del localStorage
     const lista = JSON.parse(localStorage.getItem('Respuesta API'));
@@ -191,71 +188,75 @@ function deleteMovieFromStorage (data){
 }
 
 
-
-
-
-
 let mainVer = d.getElementById('ver-mas-tarde');
 
 //read what is in localStorage
-const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
+
 console.log('lista', listaVer);
 
 //recorrendo la lista de objetos
-if (mainVer !== null){
-     console.log(mainVer);
-    function crearMostrador (){
-        for (let movies of listaVer){
 
-            let divData = d.createElement('div');
-            divData.classList.add('container', 'card');
-            divData.style.width = '18rem';
-            mainVer.appendChild(divData);
+console.log(mainVer);
 
-            let imgMovie = d.createElement('img');
-            imgMovie.src = movies.Poster;
-            imgMovie.alt = 'Card image cap';
-            imgMovie.classList.add('card-img-top');
-            divData.appendChild(imgMovie);
+function crearMostrador() {
+    const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
+    mainVer.innerHTML = "";
 
-            let divMovie = d.createElement('div');
-            divMovie.classList.add('card-body');
-            divData.appendChild(divMovie);
+    for (let movies of listaVer) {
 
-            let h2Movie = d.createElement('h2');
-            h2Movie.innerHTML = movies.Title;
-            h2Movie.classList.add('card-titulo');
-            divMovie.appendChild(h2Movie);
 
-            let pMovie = d.createElement('p');
-            pMovie.innerHTML = movies.Plot;
-            pMovie.classList.add('sinopsis');
-            divMovie.appendChild(pMovie);
+        let divData = d.createElement('div');
+        divData.classList.add('container', 'card');
+        divData.style.width = '18rem';
+        mainVer.appendChild(divData);
 
-            // let aMovie = d.createElement('a');
-            // aMovie.innerHTML = 'Agregar';
-            // // aMovie.id = 'verMasTarde';
-            // aMovie.href = '#';
-            // aMovie.classList.add('btn', 'btn-primary',);
-            // divMovie.appendChild(aMovie);
+        let imgMovie = d.createElement('img');
+        imgMovie.src = movies.Poster;
+        imgMovie.alt = 'Card image cap';
+        imgMovie.classList.add('card-img-top');
+        divData.appendChild(imgMovie);
 
-            let aMovieDelete = d.createElement('a');
-            aMovieDelete.innerHTML = 'Quitar';
-            // aMovieDelete.id = 'quitarDeListaVer';
-            aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', `${movies.Title}`, 'quitarDeListaVer');
-            aMovieDelete.href = '#';
-            divMovie.appendChild(aMovieDelete);
+        let divMovie = d.createElement('div');
+        divMovie.classList.add('card-body');
+        divData.appendChild(divMovie);
 
-        }
+        let h2Movie = d.createElement('h2');
+        h2Movie.innerHTML = movies.Title;
+        h2Movie.classList.add('card-titulo');
+        divMovie.appendChild(h2Movie);
+
+        let pMovie = d.createElement('p');
+        pMovie.innerHTML = movies.Plot;
+        pMovie.classList.add('sinopsis');
+        divMovie.appendChild(pMovie);
+
+        // let aMovie = d.createElement('a');
+        // aMovie.innerHTML = 'Agregar';
+        // // aMovie.id = 'verMasTarde';
+        // aMovie.href = '#';
+        // aMovie.classList.add('btn', 'btn-primary',);
+        // divMovie.appendChild(aMovie);
+
+        let aMovieDelete = d.createElement('a');
+        aMovieDelete.innerHTML = 'Quitar';
+        // aMovieDelete.id = 'quitarDeListaVer';
+        aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', `${movies.Title}`, 'quitarDeListaVer');
+        aMovieDelete.href = '#';
+        divMovie.appendChild(aMovieDelete);
+
+        aMovieDelete.addEventListener('click', () => {
+            console.log('click');
+            deleteMovieFromStorage(movies);
+            crearMostrador();
+        })
+
     }
 
-    crearMostrador();
 }
 
 
 
 
 
-let buttonQuitar = d.getElementsByClassName('quitarDeListaVer');
-console.log(buttonQuitar);
+
 
