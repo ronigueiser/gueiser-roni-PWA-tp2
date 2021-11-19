@@ -39,6 +39,15 @@ h1{
     border-color:#ef6c00;
 }
 
+.sinopsis{
+    margin-bottom: 20px;
+}
+
+.card-titulo{
+    font-family: 'Rubik', sans-serif;
+    color: rgb(42,42,42);
+}
+
 .page-footer{
     background: rgb(26,27,27);
     position: fixed;
@@ -109,3 +118,16 @@ form{
 .btn-quitar{
     margin-left: 25px;
 }
+
+.error{
+    margin-top: 15px;
+    color: white;
+}
+
+/* a partir de aca es para ver.index */
+
+.mostrador{
+    display: flex;
+    flex-wrap: wrap;
+}
+
