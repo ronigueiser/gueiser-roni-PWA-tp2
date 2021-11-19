@@ -191,72 +191,74 @@ function deleteMovieFromStorage (data){
 }
 
 
-//
-//
-//
-//
-// let mainVer = d.getElementById('ver-mas-tarde');
-//
-// //read what is in localStorage
-// const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
-// console.log('lista', listaVer);
-//
-// //recorrendo la lista de objetos
-// function crearMostrador (){
-//     for (let movies of listaVer){
-//
-//         let divData = d.createElement('div');
-//         divData.classList.add('container', 'card');
-//         divData.style.width = '18rem';
-//         mainVer.appendChild(divData);
-//
-//         let imgMovie = d.createElement('img');
-//         imgMovie.src = movies.Poster;
-//         imgMovie.alt = 'Card image cap';
-//         imgMovie.classList.add('card-img-top');
-//         divData.appendChild(imgMovie);
-//
-//         let divMovie = d.createElement('div');
-//         divMovie.classList.add('card-body');
-//         divData.appendChild(divMovie);
-//
-//         let h2Movie = d.createElement('h2');
-//         h2Movie.innerHTML = movies.Title;
-//         h2Movie.classList.add('card-titulo');
-//         divMovie.appendChild(h2Movie);
-//
-//         let pMovie = d.createElement('p');
-//         pMovie.innerHTML = movies.Plot;
-//         pMovie.classList.add('sinopsis');
-//         divMovie.appendChild(pMovie);
-//
-//         // let aMovie = d.createElement('a');
-//         // aMovie.innerHTML = 'Agregar';
-//         // // aMovie.id = 'verMasTarde';
-//         // aMovie.href = '#';
-//         // aMovie.classList.add('btn', 'btn-primary',);
-//         // divMovie.appendChild(aMovie);
-//
-//         let aMovieDelete = d.createElement('a');
-//         aMovieDelete.innerHTML = 'Quitar';
-//         // aMovieDelete.id = 'quitarDeListaVer';
-//         aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', `${movies.Title}`, 'quitarDeListaVer');
-//         aMovieDelete.href = '#';
-//         divMovie.appendChild(aMovieDelete);
-//
-//     }
-// }
-//
-// crearMostrador();
-//
-// let buttonQuitar = d.getElementsByClassName('quitarDeListaVer');
-// console.log(buttonQuitar);
-//
-// for (let botonUnico of buttonQuitar){
-//     console.log(botonUnico);
-// }
-//
-// buttonQuitar.addEventListener('click', (e) => {
-//
-//     deleteMovieFromStorage(listaVer);
-// })
+
+
+
+
+let mainVer = d.getElementById('ver-mas-tarde');
+
+//read what is in localStorage
+const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
+console.log('lista', listaVer);
+
+//recorrendo la lista de objetos
+function crearMostrador (){
+    for (let movies of listaVer){
+
+        let divData = d.createElement('div');
+        divData.classList.add('container', 'card');
+        divData.style.width = '18rem';
+        mainVer.appendChild(divData);
+
+        let imgMovie = d.createElement('img');
+        imgMovie.src = movies.Poster;
+        imgMovie.alt = 'Card image cap';
+        imgMovie.classList.add('card-img-top');
+        divData.appendChild(imgMovie);
+
+        let divMovie = d.createElement('div');
+        divMovie.classList.add('card-body');
+        divData.appendChild(divMovie);
+
+        let h2Movie = d.createElement('h2');
+        h2Movie.innerHTML = movies.Title;
+        h2Movie.classList.add('card-titulo');
+        divMovie.appendChild(h2Movie);
+
+        let pMovie = d.createElement('p');
+        pMovie.innerHTML = movies.Plot;
+        pMovie.classList.add('sinopsis');
+        divMovie.appendChild(pMovie);
+
+        // let aMovie = d.createElement('a');
+        // aMovie.innerHTML = 'Agregar';
+        // // aMovie.id = 'verMasTarde';
+        // aMovie.href = '#';
+        // aMovie.classList.add('btn', 'btn-primary',);
+        // divMovie.appendChild(aMovie);
+
+        let aMovieDelete = d.createElement('a');
+        aMovieDelete.innerHTML = 'Quitar';
+        // aMovieDelete.id = 'quitarDeListaVer';
+        aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', `${movies.Title}`, 'quitarDeListaVer');
+        aMovieDelete.href = '#';
+        divMovie.appendChild(aMovieDelete);
+
+    }
+}
+
+
+
+crearMostrador();
+
+let buttonQuitar = d.getElementsByClassName('quitarDeListaVer');
+console.log(buttonQuitar);
+
+for (let botonUnico of buttonQuitar){
+    console.log(botonUnico);
+}
+
+buttonQuitar.addEventListener('click', (e) => {
+
+    deleteMovieFromStorage(listaVer);
+})
