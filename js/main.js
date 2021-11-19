@@ -248,8 +248,10 @@ function crearMostrador (){
 }
 
 
+if (listaVer != null) {
+    crearMostrador();
+}
 
-crearMostrador();
 
 let buttonQuitar = d.getElementsByClassName('quitarDeListaVer');
 console.log(buttonQuitar);
