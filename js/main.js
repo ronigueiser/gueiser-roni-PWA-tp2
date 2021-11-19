@@ -257,7 +257,7 @@ function crearMostrador() {
             let aMovieDelete = d.createElement('a');
             aMovieDelete.innerHTML = 'Quitar';
             // aMovieDelete.id = 'quitarDeListaVer';
-            aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', `${movies.Title}`, 'quitarDeListaVer');
+            aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', 'quitarDeListaVer');
             aMovieDelete.href = '#';
             divMovie.appendChild(aMovieDelete);
 
