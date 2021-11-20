@@ -1,9 +1,28 @@
 window.addEventListener('offline', event => {
     console.log('Sin conexión a internet');
+    console.log(statusInternet);
+
+    statusInternet.classList.remove('online');
+    statusInternet.classList.add('offline');
+    msgStatus.innerHTML = '';
+    msgStatus.innerHTML = 'Offline';
+
+
+
+
+
+
 });
 
 window.addEventListener('online', event => {
-    console.log('Con conexión a internet');
+    console.log('Con conexión a internet')
+    statusInternet.classList.remove('offline');
+    statusInternet.classList.add('online');
+    msgStatus.innerHTML = '';
+    msgStatus.innerHTML = 'Online';
+
+
+
 });
 
 
@@ -18,7 +37,8 @@ if (!navigator.onLine) {
 
 const API_KEY = 'fe416fc4';
 const lang = 'es';
-
+let statusInternet = document.getElementById('status');
+let msgStatus = document.getElementById('msgStatus');
 let d = document;
 let body = d.getElementById('body')
 let search = d.getElementById('search');
