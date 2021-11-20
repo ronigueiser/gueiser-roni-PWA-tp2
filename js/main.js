@@ -8,11 +8,8 @@ window.addEventListener('offline', event => {
     msgStatus.innerHTML = 'Offline';
 
 
-
-
-
-
 });
+
 
 window.addEventListener('online', event => {
     console.log('Con conexión a internet')
@@ -21,15 +18,18 @@ window.addEventListener('online', event => {
     msgStatus.innerHTML = '';
     msgStatus.innerHTML = 'Online';
 
-
-
 });
+
+
 
 
 if (!navigator.onLine) {
     console.log('Sin conexión a internet');
+
+
 } else {
     console.log('Con conexión a internet');
+
 }
 
 
@@ -120,6 +120,12 @@ function drawMaker(data) {
         pMovie.innerHTML = data.Plot;
         pMovie.classList.add('sinopsis');
         divMovie.appendChild(pMovie);
+
+        let pMovieRate = d.createElement('p');
+        pMovieRate.innerHTML = `Calificación: ${data.imdbRating} ✪`;
+        pMovieRate.classList.add('sinopsis');
+        divMovie.appendChild(pMovieRate);
+
 
         let aMovie = d.createElement('a');
         aMovie.innerHTML = 'Agregar';
@@ -267,6 +273,11 @@ function crearMostrador() {
             pMovie.classList.add('sinopsis');
             divMovie.appendChild(pMovie);
 
+            let pMovieRate = d.createElement('p');
+            pMovieRate.innerHTML = `Calificación: ${movies.imdbRating} ✪`;
+            pMovieRate.classList.add('sinopsis');
+            divMovie.appendChild(pMovieRate);
+
             // let aMovie = d.createElement('a');
             // aMovie.innerHTML = 'Agregar';
             // // aMovie.id = 'verMasTarde';
@@ -277,7 +288,7 @@ function crearMostrador() {
             let aMovieDelete = d.createElement('a');
             aMovieDelete.innerHTML = 'Quitar';
             // aMovieDelete.id = 'quitarDeListaVer';
-            aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar', 'quitarDeListaVer');
+            aMovieDelete.classList.add('btn', 'btn-danger', 'quitarDeListaVer');
             aMovieDelete.href = '#';
             divMovie.appendChild(aMovieDelete);
 
