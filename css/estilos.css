@@ -157,6 +157,12 @@ form{
 
 }
 
+.listadoRecomendaciones{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
 .peliculas{
     margin: 80px auto auto;
     background-color: rgb(26,27,27);
