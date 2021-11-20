@@ -7,6 +7,13 @@ window.addEventListener('offline', event => {
     msgStatus.innerHTML = '';
     msgStatus.innerHTML = 'Offline';
 
+    imgEspera.classList.remove('img-offline');
+    imgEspera.classList.add('img-online');
+
+    pJuegos.classList.remove('p-offline');
+    pJuegos.classList.add('p-online');
+
+
 
 });
 
@@ -17,6 +24,14 @@ window.addEventListener('online', event => {
     statusInternet.classList.add('online');
     msgStatus.innerHTML = '';
     msgStatus.innerHTML = 'Online';
+
+    imgEspera.classList.add('img-offline');
+    imgEspera.classList.remove('img-online');
+
+    pJuegos.classList.add('p-offline');
+    pJuegos.classList.remove('p-online');
+
+
 
 });
 
@@ -45,7 +60,8 @@ let search = d.getElementById('search');
 let main = d.getElementById('poster');
 // let divData = d.getElementById('movieData');
 let buttom = d.getElementById('send');
-
+let imgEspera = d.getElementById('espera');
+let pJuegos = d.getElementById('p-juego');
 const valorUltimaBusqueda = JSON.parse(localStorage.getItem('Respuesta API'));
 
 if (valorUltimaBusqueda != null) {
@@ -92,8 +108,6 @@ function drawMaker(data) {
         pError.classList.add('error');
         divData.appendChild(pError);
     } else {
-
-
         main.innerHTML = "";
 
         let divData = d.createElement('div');
