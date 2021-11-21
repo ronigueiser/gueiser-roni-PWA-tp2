@@ -1,4 +1,31 @@
 window.addEventListener('offline', event => {
+
+    console.log('offline');
+    localStorage.setItem('status', 'offline');
+    handleOffline()
+});
+
+window.addEventListener('online', event => {
+
+    console.log('online');
+    localStorage.setItem('status', 'online');
+    handleOnline()
+
+});
+
+window.addEventListener('load', event => {
+
+    if ( navigator.onLine === false ) {
+
+        handleOffline()
+    }
+    else {
+
+        handleOnline()
+    }
+});
+
+function handleOffline() {
     console.log('Sin conexión a internet');
     console.log(statusInternet);
 
@@ -12,13 +39,10 @@ window.addEventListener('offline', event => {
 
     pJuegos.classList.remove('p-offline');
     pJuegos.classList.add('p-online');
+}
 
 
-
-});
-
-
-window.addEventListener('online', event => {
+function handleOnline() {
     console.log('Con conexión a internet')
     statusInternet.classList.remove('offline');
     statusInternet.classList.add('online');
@@ -30,17 +54,11 @@ window.addEventListener('online', event => {
 
     pJuegos.classList.add('p-offline');
     pJuegos.classList.remove('p-online');
-
-
-
-});
-
-
+}
 
 
 if (!navigator.onLine) {
     console.log('Sin conexión a internet');
-
 
 } else {
     console.log('Con conexión a internet');
@@ -224,12 +242,11 @@ function deleteMovieFromStorage(data) {
         }
 
     }
-    
+
 }
 
 
 let mainVer = d.getElementById('ver-mas-tarde');
-
 
 
 //read what is in localStorage
@@ -258,7 +275,7 @@ function crearMostrador() {
     const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
     mainVer.innerHTML = "";
 
-    if (listaVer != null){
+    if (listaVer != null) {
         for (let movies of listaVer) {
 
 
