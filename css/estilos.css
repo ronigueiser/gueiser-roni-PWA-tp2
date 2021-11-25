@@ -87,7 +87,14 @@ nav{
 .card{
     margin-top: 3rem;
     margin-bottom: 6rem;
-
+    /*flex-direction: row !important;*/
+    /*width: initial !important;*/
+    /*border-radius: 25px!important;*/
+    background-color: rgb(26,27,27)!important;
+    color: white;
+}
+.card-titulo{
+    color: white!important;
 }
 
 .btn-outline-success:hover{
@@ -129,10 +136,12 @@ form{
 
 .card-img-top{
     padding: 10px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
 }
 
 .btn-quitar{
-    margin-left: 25px;
+    /*margin-left: 25px;*/
 }
 
 .error{
@@ -218,6 +227,7 @@ form{
 
 }
 
+
 .online {
     top: 36px;
     position: fixed;
@@ -263,5 +273,7 @@ form{
     max-width: 80%;
     font-size: 1.4rem;
     margin: auto auto 50px;
+
 }
+
 

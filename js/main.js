@@ -100,8 +100,7 @@ if (buttom != null) {
             console.log('imprimo json', responseJSON);
             drawMaker(responseJSON);
             return responseJSON;
-        }).then((returnJSON) => agregarParaVerMasTarde(returnJSON))
-            .catch(function (error) {
+        }).catch(function (error) {
                 console.log('Fallo!', error)
             });
 
@@ -141,6 +140,7 @@ function drawMaker(data) {
 
         let divMovie = d.createElement('div');
         divMovie.classList.add('card-body');
+        divMovie.id = 'movieData';
         divData.appendChild(divMovie);
 
         let h2Movie = d.createElement('h2');
@@ -158,38 +158,57 @@ function drawMaker(data) {
         pMovieRate.classList.add('sinopsis');
         divMovie.appendChild(pMovieRate);
 
+        const list = JSON.parse(localStorage.getItem('Respuesta API'));
 
-        let aMovie = d.createElement('a');
-        aMovie.innerHTML = 'Agregar';
-        aMovie.id = 'verMasTarde';
-        aMovie.classList.add('btn', 'btn-primary');
-        divMovie.appendChild(aMovie);
+        if (list != null) {
+            const isInList = list.some(item => item.Title === data.Title);
 
-        let aMovieDelete = d.createElement('a');
-        aMovieDelete.innerHTML = 'Quitar';
-        aMovieDelete.id = 'quitarDeLista';
-        aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar');
-        divMovie.appendChild(aMovieDelete);
+            if (isInList){
+                crearBotonQuitar(data)
+            }  else {
+                crearBotonAgregar(data)
+            }
+        } else {
+            crearBotonAgregar(data)
+        }
     }
-
-
 }
 
+function crearBotonAgregar(data){
+    let buscarDiv = d.getElementById('movieData');
+    let aMovie = d.createElement('a');
+    aMovie.innerHTML = 'Agregar';
+    aMovie.id = 'verMasTarde';
+    aMovie.classList.add('btn', 'btn-primary');
 
-function agregarParaVerMasTarde(data) {
-    const verMasTarde = d.getElementById('verMasTarde');
-    verMasTarde.addEventListener('click', () => {
+
+    aMovie.addEventListener('click', () => {
         console.log('click');
         saveMovieToStorage(data);
+        aMovie.remove();
+        crearBotonQuitar(data);
     })
+    buscarDiv.appendChild(aMovie);
+}
 
-    const quitarDeLista = d.getElementById('quitarDeLista');
-    quitarDeLista.addEventListener('click', () => {
+function crearBotonQuitar(data){
+    let buscarDiv = d.getElementById('movieData');
+    let aMovieDelete = d.createElement('a');
+    aMovieDelete.innerHTML = 'Quitar';
+    aMovieDelete.id = 'quitarDeLista';
+    aMovieDelete.classList.add('btn', 'btn-danger', 'btn-quitar');
+
+    aMovieDelete.addEventListener('click', () => {
         console.log('click');
         deleteMovieFromStorage(data);
+        aMovieDelete.remove();
+        crearBotonAgregar(data);
     })
-
+    buscarDiv.appendChild(aMovieDelete);
 }
+
+
+
 
 
 const saveMovieToStorage = (data) => {
@@ -273,7 +292,7 @@ function crearMostrador() {
     const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
     mainVer.innerHTML = "";
 
-    if (listaVer != null) {
+    if (listaVer != null && listaVer.length !== 0) {
         for (let movies of listaVer) {
 
 
