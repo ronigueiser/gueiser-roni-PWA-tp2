@@ -246,6 +246,28 @@ form{
 
 }
 
+.loading.active{
+    visibility: initial;
+}
+
+.loading{
+    visibility: hidden;
+    top: 70px;
+    position: fixed;
+    right: 56px;
+    /*background-color: white;*/
+    border-radius: 25px;
+    width: 85px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: yellow;
+    color: black;
+    font-weight: bold;
+}
+
 .img-offline{
    display: none;
 }

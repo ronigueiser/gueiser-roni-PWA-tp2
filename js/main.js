@@ -82,9 +82,8 @@ let imgEspera = d.getElementById('espera');
 let pJuegos = d.getElementById('p-juego');
 const valorUltimaBusqueda = JSON.parse(localStorage.getItem('Respuesta API'));
 
-if (valorUltimaBusqueda != null) {
-    // drawMaker(valorUltimaBusqueda);
-}
+let loadingMovie = d.getElementById('loading');
+
 
 if (buttom != null) {
     buttom.addEventListener('click', () => {
@@ -92,9 +91,13 @@ if (buttom != null) {
 
         // console.log(search.value);
 
+
+        loadingMovie.classList.add('active');
+
         fetch(`https://www.omdbapi.com/?t=${search.value}&apikey=${API_KEY}`
         ).then(function (response) {
             console.log(response);
+            loadingMovie.classList.remove('active');
             return response.json();
         }).then(function (responseJSON) {
             console.log('imprimo json', responseJSON);
