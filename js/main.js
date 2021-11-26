@@ -296,6 +296,7 @@ function crearMostrador() {
     const listaVer = JSON.parse(localStorage.getItem('Respuesta API'));
     mainVer.innerHTML = "";
 
+
     if (listaVer != null && listaVer.length !== 0) {
         for (let movies of listaVer) {
 
@@ -303,6 +304,7 @@ function crearMostrador() {
             let divData = d.createElement('div');
             divData.classList.add('container', 'card');
             divData.style.width = '18rem';
+            divData.style.position = 'inhertal';
             mainVer.appendChild(divData);
 
             let imgMovie = d.createElement('img');
@@ -341,6 +343,7 @@ function crearMostrador() {
                 console.log('click');
                 deleteMovieFromStorage(movies);
                 crearMostrador();
+
 
             })
 

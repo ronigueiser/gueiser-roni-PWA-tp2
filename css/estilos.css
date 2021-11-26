@@ -75,12 +75,17 @@ nav{
     background-color: white;
 }
 
+.navbar{
+    position: fixed!important;
+    top: 72px!important;
+}
+
 .nav{
     align-items: center;
 }
 
 .navegacion{
-    background: rgb(26,27,27);
+    background: #e91e63;
     border-radius: 18px;
 }
 
