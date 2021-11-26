@@ -329,18 +329,11 @@ function crearMostrador() {
             pMovieRate.classList.add('sinopsis');
             divMovie.appendChild(pMovieRate);
 
-            // let aMovie = d.createElement('a');
-            // aMovie.innerHTML = 'Agregar';
-            // // aMovie.id = 'verMasTarde';
-            // aMovie.href = '#';
-            // aMovie.classList.add('btn', 'btn-primary',);
-            // divMovie.appendChild(aMovie);
 
             let aMovieDelete = d.createElement('a');
             aMovieDelete.innerHTML = 'Quitar';
             // aMovieDelete.id = 'quitarDeListaVer';
             aMovieDelete.classList.add('btn', 'btn-danger', 'quitarDeListaVer');
-            aMovieDelete.href = '#';
             divMovie.appendChild(aMovieDelete);
 
             aMovieDelete.addEventListener('click', () => {
