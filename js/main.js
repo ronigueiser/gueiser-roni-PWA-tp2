@@ -177,6 +177,7 @@ function drawMaker(data) {
     }
 }
 
+
 function crearBotonAgregar(data){
     let buscarDiv = d.getElementById('movieData');
     let aMovie = d.createElement('a');
