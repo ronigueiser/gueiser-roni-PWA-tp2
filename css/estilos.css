@@ -216,7 +216,7 @@ form{
 
 .offline {
     top: 36px;
-    position: fixed;
+    position: absolute;
     right: 56px;
     /*background-color: white;*/
     border-radius: 25px;
@@ -235,7 +235,7 @@ form{
 
 .online {
     top: 36px;
-    position: fixed;
+    position: absolute;
     right: 56px;
     /*background-color: white;*/
     border-radius: 25px;
@@ -258,7 +258,7 @@ form{
 .loading{
     visibility: hidden;
     top: 70px;
-    position: fixed;
+    position: absolute;
     right: 56px;
     /*background-color: white;*/
     border-radius: 25px;
