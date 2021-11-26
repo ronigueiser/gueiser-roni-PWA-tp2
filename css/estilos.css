@@ -76,9 +76,24 @@ nav{
 }
 
 .navbar{
-    position: fixed!important;
-    top: 72px!important;
+
 }
+
+@media screen and (max-width: 768px){
+    .navbar{
+        position: fixed!important;
+        top: 72px!important;
+    }
+}
+
+/*@screen and media(max-width: 768px){*/
+/*    .navbar{*/
+/*        position: fixed!important;*/
+/*        top: 72px!important;*/
+/*    }*/
+/*}*/
+
+
 
 .nav{
     align-items: center;
