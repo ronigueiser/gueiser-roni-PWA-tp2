@@ -304,7 +304,6 @@ function crearMostrador() {
             let divData = d.createElement('div');
             divData.classList.add('container', 'card');
             divData.style.width = '18rem';
-            divData.style.position = 'inhertal';
             mainVer.appendChild(divData);
 
             let imgMovie = d.createElement('img');

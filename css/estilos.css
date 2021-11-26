@@ -97,6 +97,7 @@ nav{
     /*border-radius: 25px!important;*/
     background-color: rgb(26,27,27)!important;
     color: white;
+    position: inherit!important;
 }
 .card-titulo{
     color: white!important;
